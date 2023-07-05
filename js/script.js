@@ -7,18 +7,21 @@ var url = "https://gateway.marvel.com/v1/public/characters?ts=1&apikey=dc6f0244d
         var characterDetails = document.getElementById('characterDetails');
         characters.forEach(character => {
           var characterDiv = document.createElement('div');
+          characterDiv.classList.add('character-card', 'card');
           characterDiv.innerHTML = `
-            <h2>${character.name}</h2>
-            <img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="Character Image">
-            <p>${character.description}</p>
-            <h3>Comics:</h3>
-            <ul>
-              ${character.comics.items.map(comic => `<li>${comic.name}</li>`).join('')}
-            </ul>
-            <h3>Series:</h3>
-            <ul>
-              ${character.series.items.map(series => `<li>${series.name}</li>`).join('')}
-            </ul>
+            <div class="card-body">
+              <h2 class="card-title">${character.name}</h2>
+              <img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="Character Image" class="card-img-top">
+              <p class="card-text">${character.description}</p>
+              <h3 class="card-subtitle">Comics:</h3>
+              <ul class="list-group list-group-flush">
+                ${character.comics.items.map(comic => `<li class="list-group-item">${comic.name}</li>`).join('')}
+              </ul>
+              <h3 class="card-subtitle">Series:</h3>
+              <ul class="list-group list-group-flush">
+                ${character.series.items.map(series => `<li class="list-group-item">${series.name}</li>`).join('')}
+              </ul>
+            </div>
           `;
           characterDetails.appendChild(characterDiv);
         });
