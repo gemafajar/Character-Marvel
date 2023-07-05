@@ -1,4 +1,9 @@
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
+.character-card {
+  max-width: 300px;
+  margin: 20px;
+}
+
+.character-card img {
+  width: 100%;
+  height: auto;
 }
